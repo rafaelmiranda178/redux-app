@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { clickButton } from './actions';
-import {Title} from './title';
+import Title from './components/title';
 import './App.css';
 
 class App extends Component {
   state = {
-    inputValue : ''
+    inputValue: ''
   }
   inputChange = event => {
     this.setState({
@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   render() {
-    const { newValue, clickButton } = this.props;
+    const { clickButton } = this.props;
     const { inputValue } = this.state;
     return (
       <div className="App" style={{ paddingTop: '10px' }}>
@@ -24,7 +24,7 @@ class App extends Component {
         <button onClick={() => clickButton(inputValue)}>
           Click me!
         </button>
-        <Title name={newValue}/>
+        <Title />
       </div>
     );
   }
